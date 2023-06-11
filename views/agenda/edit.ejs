@@ -1,0 +1,60 @@
+<%- include("includes/header"); %>
+
+<div class="container">
+
+    <h3>Editar Contato</h3>
+    <hr>
+
+    <form method="POST" action="/agenda/update">
+
+        <!-- <input type="hidden" name="_method" value="PUT"> -->
+        <input type="hidden" name="id" value="<%= agenda.id %>">
+        <div class="mb-3">
+            <label for="nome" class="form-label">nome</label>
+            <input type="text" class="form-control" name="nome"value="<%= agenda.nome %>">
+          </div>
+          <div class="mb-3">
+              <label for="celular" class="form-label">celular</label>
+              <input type="text" class="form-control"  name="celular"value="<%= agenda.celular %>">
+          </div>
+          <div class="mb-3">
+              <label for="email" class="form-label">email</label>
+              <input type="text" class="form-control"  name="email" aria-describedby="emailHelp"value="<%= agenda.email %>">
+          </div>
+          <div class="mb-3">
+              <label for="rua" class="form-label">rua</label>
+              <input type="text" class="form-control"  name="rua" value="<%= agenda.rua %>">
+          </div>
+          <div class="mb-3">
+              <label for="numero" class="form-label">numero</label>
+              <input type="text" class="form-control"  name="numero" value="<%= agenda.numero %>">
+          </div>
+          <div class="mb-3">
+              <label for="bairro" class="form-label">bairro</label>
+              <input type="text" class="form-control"  name="bairro" value="<%= agenda.bairro %>">
+          </div>
+          <div class="mb-3">
+              <label for="cidade" class="form-label">cidade</label>
+              <input type="text" class="form-control"  name="cidade" value="<%= agenda.cidade %>">
+          </div>
+          <div class="mb-3">
+              <label for="estado" class="form-label">estado</label>
+              <input type="text" class="form-control"  name="estado" value="<%= agenda.estado %>">
+          </div>
+          <div class="mb-3">
+              <label for="cep" class="form-label">cep</label>
+              <input type="text" class="form-control"  name="cep" value="<%= agenda.cep %>">
+          </div>
+          <div class="mb-3">
+              <label for="complemento" class="form-label">Complemento</label>
+              <input type="text" class="form-control"  name="complemento" value="<%= agenda.complemento %>">
+          </div>
+
+        
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <a href="/agenda" class="btn btn-secondary">Cancelar</a>
+      </form>
+    
+</div>
+
+<%- include("includes/footer"); %>

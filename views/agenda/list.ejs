@@ -1,0 +1,68 @@
+<%- include("includes/header"); %>
+
+<script>
+
+    function confirmar(mensagem) {
+        console.log(event)
+        const result = confirm(mensagem);
+
+        if (!result) {
+            return false;
+        }
+    }
+
+</script>
+
+<div class="container-agenda">
+    <h3>Lista de Contatos</h3>
+
+    <div>
+        <a type="button" class="btn btn-primary" href="/agenda/create/">Adicionar Contato</a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col" style="min-width: 5vw">nome</th>
+                <th scope="col" style="min-width: 1vw">celular</th>
+                <th scope="col" style="min-width: 1vw">email</th>
+                <th scope="col" style="min-width: 5vw">rua</th>
+                <th scope="col" style="min-width: 1vw">numero</th>
+                <th scope="col" style="min-width: 1vw">bairro</th>
+                <th scope="col" style="min-width: 5vw">cidade</th>
+                <th scope="col" style="min-width: 1vw">estado</th>
+                <th scope="col" style="min-width: 1vw">cep</th>
+                <th scope="col" style="min-width: 1vw">complemento</th>
+
+                <!-- <th scope="col">Opções</th>ks -->
+            </tr>
+        </thead>
+        <tbody>
+            <% for(const agendas of agenda) { %>
+            <tr class="<%= agenda.done == 1 ? 'concluido' : '' %>">
+                <td><%= agendas.nome %></td>
+                <td><%= agendas.celular %></td>
+                <td><%= agendas.email %></td>
+                <td><%= agendas.rua %></td>
+                <td><%= agendas.numero %></td>
+                <td><%= agendas.bairro %></td>
+                <td><%= agendas.cidade %></td>
+                <td><%= agendas.estado %></td>
+                <td><%= agendas.cep %></td>
+                <td><%= agendas.complemento %></td>
+                <tr>
+                    <td style="display: flex;">
+                        <a type="button" style="margin-right: 1vw;" class="btn btn-success" href="/agenda/edit/<%= agendas.id %>">Editar</a>
+                        <form action="/agenda/remove/<%= agendas.id %>" method="POST" style="display: inline-block" onsubmit="return confirmar('Tem certeza que deseja excluir essa tarefa?')">
+                            <button type="submit" class="btn btn-danger">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+                
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+
+</div>
+
+<%- include("includes/footer"); %>

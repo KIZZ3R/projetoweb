@@ -36,6 +36,11 @@
     padding: 50px;
 }
 
+.container-agenda {
+    min-height: calc(100vh - 56px - 100px);
+    padding: 50px;
+}
+
 .footer {
     height: 100px;
     background-color: silver;
@@ -45,4 +50,14 @@
 .concluido td:not(:last-child) {
     text-decoration-line: line-through;
     text-decoration-thickness: 2px;
+}
+
+.mb-3 .form-control {
+    width: 180px;
+    
+}
+
+.mb-3{
+    display: inline-block;
+    margin: 1vw;
 }
