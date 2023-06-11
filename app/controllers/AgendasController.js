@@ -79,18 +79,6 @@ function AgendasController() {
       .catch((err) => console.log(err))
   }
 
-  function updateStatus(req, res) {
-    const id = req.params.id
-
-    const agenda = {
-      done: req.body.done === '0' ? true : false,
-    }
-
- 	  Agenda.update(agenda, { where: { id: id } })
-      .then(res.redirect('/agenda'))
-      .catch((err) => console.log())
-    }
-
     return {
       create,
       save,
@@ -98,7 +86,6 @@ function AgendasController() {
       remove,
       edit,
       update,
-      updateStatus,
     }
 
 }

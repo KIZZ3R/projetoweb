@@ -41,7 +41,7 @@ function AgendasController() {
 
       if (!data) {
         return res.status(404).send({
-          message: "Tarefa não encontrada."
+          message: "Contato não encontrado."
         })
       }
 
@@ -63,14 +63,14 @@ function AgendasController() {
 
         if (!data) {
           return res.status(404).send({
-            message: "Tarefa não encontrada."
+            message: "Contato não encontrado."
           })
         }
 
         Agenda.destroy({ where: { id: id } })
           .then(() => {
             res.status(200).json({
-              message: "Tarefa removida."
+              message: "Contato removido."
             })
           })
           .catch((err) => console.log())
@@ -119,35 +119,7 @@ function AgendasController() {
     
   }
 
-  function updateStatus(req, res) {
-    const id = req.params.id
-
-    const agenda = {
-      done: req.body.done === '1' ? true : false,
-    }
-
-    
-    Agenda.findOne({ where: { id: id }, raw: true })
-      .then((data) => {
-
-        if (!data) {
-          return res.status(404).send({
-            message: "Tarefa não encontrada."
-          })
-        }
-
-        Agenda.update(agenda, { where: { id: id } })
-          .then(() => {
-            res.json({
-              message: "Status da Tarefa atualizado."
-            })
-          })
-          .catch((err) => console.log(err))
-
-      })
-      .catch((err) => res.json(err));
-
-    }
+  
 
     return {
       save,
@@ -155,7 +127,6 @@ function AgendasController() {
       show,
       remove,
       update,
-      updateStatus,
     }
 
 }
